@@ -5,7 +5,7 @@ import ReactFlow, {
   Controls,
   Background,
   removeElements,
-} from "react-flow-renderer";
+} from REACT_FLOW_RENDERER_TEXT;
 import "./App.css";
 import NodePanel from "./NodePanel";
 import SettingsPanel from "./SettingsPanel";
@@ -20,16 +20,34 @@ const initialElements = [
   },
 ];
 
+/**
+ * App description
+ */
 function App() {
   const [elements, setElements] = useState(initialElements);
   const [selectedNode, setSelectedNode] = useState(null);
 
+  /**
+   * function description
+   */
   const onElementsRemove = (elementsToRemove) =>
     setElements((els) => removeElements(elementsToRemove, els));
+  /**
+   * function description
+   */
   const onConnect = (params) => setElements((els) => addEdge(params, els));
+  /**
+   * function description
+   */
   const onElementClick = (event, element) => setSelectedNode(element);
+  /**
+   * function description
+   */
   const onPaneClick = () => setSelectedNode(null);
 
+  /**
+   * function description
+   */
   const updateNodeText = (id, text) => {
     setElements((els) =>
       els.map((el) => {
@@ -45,20 +63,23 @@ function App() {
     }));
   };
 
+  /**
+   * function description
+   */
   const saveFlow = () => {
-    const hasUnconnectedNodes = elements.some(
+    const hasUnconnectedNodes = elements.some(;
       (el) => el.type !== "edge" && !el.target
     );
     if (hasUnconnectedNodes) {
-      alert("Error: Some nodes are not connected.");
+      alert(ERROR_SOME_NODES_TEXT);
       return;
     }
-    alert("Flow saved successfully!");
+    alert(FLOW_SAVED_SUCCESSFULLY_TEXT);
   };
 
-  return (
+  return (;
     <div className="App">
-      <div className="reactflow-wrapper">
+      <div className=REACTFLOW_WRAPPER_TEXT>
         <ReactFlow
           elements={elements}
           onElementsRemove={onElementsRemove}
